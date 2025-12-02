@@ -1,0 +1,21 @@
+GowinSynthesis start
+Running parser ...
+Analyzing VHDL file 'C:\Users\silas\Documents\Senso\Senso\src\Timer.vhd'
+Analyzing entity 'timer'("C:\Users\silas\Documents\Senso\Senso\src\Timer.vhd":5)
+Analyzing architecture 'behav'("C:\Users\silas\Documents\Senso\Senso\src\Timer.vhd":17)
+Analyzing VHDL file 'C:\Users\silas\Documents\Senso\Senso\src\timer_tb.vhd'
+Analyzing entity 'timer_tb'("C:\Users\silas\Documents\Senso\Senso\src\timer_tb.vhd":5)
+Analyzing architecture 'behav'("C:\Users\silas\Documents\Senso\Senso\src\timer_tb.vhd":13)
+Analyzing VHDL file 'C:\Users\silas\Documents\Senso\Senso\src\top.vhd'
+Analyzing entity 'top'("C:\Users\silas\Documents\Senso\Senso\src\top.vhd":4)
+Analyzing architecture 'behav'("C:\Users\silas\Documents\Senso\Senso\src\top.vhd":7)
+Analyzing VHDL file 'C:\Users\silas\Documents\Senso\Senso\src\button.vhd'
+Analyzing entity 'button'("C:\Users\silas\Documents\Senso\Senso\src\button.vhd":5)
+Analyzing architecture 'behav'("C:\Users\silas\Documents\Senso\Senso\src\button.vhd":12)
+Analyzing VHDL file 'C:\Users\silas\Documents\Senso\Senso\src\input.vhd'
+Analyzing entity 'input'("C:\Users\silas\Documents\Senso\Senso\src\input.vhd":5)
+Analyzing architecture 'behav'("C:\Users\silas\Documents\Senso\Senso\src\input.vhd":12)
+ERROR (EX4739) : Syntax error near 'process'("C:\Users\silas\Documents\Senso\Senso\src\input.vhd":77)
+ERROR (EX4728) : Type error near 'behav', expected type ' void'("C:\Users\silas\Documents\Senso\Senso\src\input.vhd":78)
+VHDL file 'C:\Users\silas\Documents\Senso\Senso\src\input.vhd' is ignored due to errors
+GowinSynthesis finish

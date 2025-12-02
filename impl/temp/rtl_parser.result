@@ -1,0 +1,36 @@
+[
+ {
+  "InstFile" : "C:/Users/silas/Documents/Senso/Senso/src/top.vhd",
+  "InstLine" : 4,
+  "InstName" : "top",
+  "ModuleFile" : "C:/Users/silas/Documents/Senso/Senso/src/top.vhd",
+  "ModuleLine" : 4,
+  "ModuleName" : "top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/silas/Documents/Senso/Senso/src/top.vhd",
+    "InstLine" : 37,
+    "InstName" : "u_dut",
+    "ModuleFile" : "C:/Users/silas/Documents/Senso/Senso/src/Timer.vhd",
+    "ModuleLine" : 5,
+    "ModuleName" : "timer"
+   },
+   {
+    "InstFile" : "C:/Users/silas/Documents/Senso/Senso/src/top.vhd",
+    "InstLine" : 50,
+    "InstName" : "u_tb",
+    "ModuleFile" : "C:/Users/silas/Documents/Senso/Senso/src/timer_tb.vhd",
+    "ModuleLine" : 5,
+    "ModuleName" : "timer_tb"
+   }
+  ]
+ },
+ {
+  "InstFile" : "C:/Users/silas/Documents/Senso/Senso/src/button.vhd",
+  "InstLine" : 5,
+  "InstName" : "button",
+  "ModuleFile" : "C:/Users/silas/Documents/Senso/Senso/src/button.vhd",
+  "ModuleLine" : 5,
+  "ModuleName" : "button"
+ }
+]
