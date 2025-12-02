@@ -26,11 +26,45 @@
   ]
  },
  {
-  "InstFile" : "C:/Users/silas/Documents/Senso/Senso/src/button.vhd",
+  "InstFile" : "C:/Users/silas/Documents/Senso/Senso/src/input.vhd",
   "InstLine" : 5,
-  "InstName" : "button",
-  "ModuleFile" : "C:/Users/silas/Documents/Senso/Senso/src/button.vhd",
+  "InstName" : "input",
+  "ModuleFile" : "C:/Users/silas/Documents/Senso/Senso/src/input.vhd",
   "ModuleLine" : 5,
-  "ModuleName" : "button"
+  "ModuleName" : "input",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Users/silas/Documents/Senso/Senso/src/input.vhd",
+    "InstLine" : 26,
+    "InstName" : "u_btn_red",
+    "ModuleFile" : "C:/Users/silas/Documents/Senso/Senso/src/button.vhd",
+    "ModuleLine" : 5,
+    "ModuleName" : "button"
+   },
+   {
+    "InstFile" : "C:/Users/silas/Documents/Senso/Senso/src/input.vhd",
+    "InstLine" : 33,
+    "InstName" : "u_btn_blue",
+    "ModuleFile" : "C:/Users/silas/Documents/Senso/Senso/src/button.vhd",
+    "ModuleLine" : 5,
+    "ModuleName" : "button"
+   },
+   {
+    "InstFile" : "C:/Users/silas/Documents/Senso/Senso/src/input.vhd",
+    "InstLine" : 40,
+    "InstName" : "u_btn_yellow",
+    "ModuleFile" : "C:/Users/silas/Documents/Senso/Senso/src/button.vhd",
+    "ModuleLine" : 5,
+    "ModuleName" : "button"
+   },
+   {
+    "InstFile" : "C:/Users/silas/Documents/Senso/Senso/src/input.vhd",
+    "InstLine" : 47,
+    "InstName" : "u_btn_green",
+    "ModuleFile" : "C:/Users/silas/Documents/Senso/Senso/src/button.vhd",
+    "ModuleLine" : 5,
+    "ModuleName" : "button"
+   }
+  ]
  }
 ]

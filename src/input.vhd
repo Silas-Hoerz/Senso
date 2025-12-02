@@ -34,22 +34,22 @@ begin
         port map(
             clk => clk,
             res_n => res_n,
-            tx_n => key_in_n(0),
-            key => keys(0)
+            tx_n => key_in_n(1),
+            key => keys(1)
         );
     u_btn_yellow: button
         port map(
             clk => clk,
             res_n => res_n,
-            tx_n => key_in_n(0),
-            key => keys(0)
+            tx_n => key_in_n(2),
+            key => keys(2)
         );
     u_btn_green: button
         port map(
             clk => clk,
             res_n => res_n,
-            tx_n => key_in_n(0),
-            key => keys(0)
+            tx_n => key_in_n(3),
+            key => keys(3)
         );
 
     -- Rein kombinatorisch? JA!
@@ -65,13 +65,14 @@ begin
 
     process (keys) is
     begin  
+        key_color <= "00";
         if keys(0) = '1' then
             key_color <= "00";
-        else if keys(1) = '1' then
+        elsif keys(1) = '1' then
             key_color <= "01";
-        else if keys(2) = '1' then
+        elsif keys(2) = '1' then
             key_color <= "10";
-        else 
+        elsif keys(3) = '1' then
             key_color <= "11";
         end if;
     end process;

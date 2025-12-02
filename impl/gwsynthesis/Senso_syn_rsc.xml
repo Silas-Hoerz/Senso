@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="button" Register="4" Lut="5" T_Register="4(4)" T_Lut="5(5)"/>
+<Module name="input" Lut="6" T_Register="16(0)" T_Lut="19(6)">
+ <SubModule name="u_btn_red" Register="4" Lut="4" T_Register="4(4)" T_Lut="4(4)"/>
+ <SubModule name="u_btn_blue" Register="4" Lut="3" T_Register="4(4)" T_Lut="3(3)"/>
+ <SubModule name="u_btn_yellow" Register="4" Lut="3" T_Register="4(4)" T_Lut="3(3)"/>
+ <SubModule name="u_btn_green" Register="4" Lut="3" T_Register="4(4)" T_Lut="3(3)"/>
+</Module>
