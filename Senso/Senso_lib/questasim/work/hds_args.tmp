@@ -1,0 +1,1 @@
+ -L Senso_lib -l ../transcript.txt -i -t ns -multisource_delay latest +typdelays Senso_lib.Senso(struct)

@@ -1,0 +1,20 @@
+--
+-- VHDL Architecture Senso_lib.input.behav
+--
+-- Created:
+--          by - st177504.st177504 (pc027)
+--          at - 15:57:10 12/03/25
+--
+-- using Siemens HDL Designer(TM) 2025.2 Built on 26 May 2025 at 14:52:30
+--
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+ENTITY input IS
+END ENTITY input;
+
+--
+ARCHITECTURE behav OF input IS
+BEGIN
+END ARCHITECTURE behav;
+

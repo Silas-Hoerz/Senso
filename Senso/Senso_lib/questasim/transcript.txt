@@ -1,0 +1,114 @@
+# vsim -f hds_args.tmp -no_autoacc -foreign "hdsInit /ext/eda/hds/2025_2/resources/downstream/modelsim/ModelSim_64Bit.dll" -pli ""/ext/eda/hds/2025_2/resources/downstream/modelsim/ModelSim_64Bit.dll"" 
+# Start time: 15:51:37 on Dec 03,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.senso(struct)#1
+# Loading work.timer(behav)#1
+# Loading work.timer_tb(behav)#1
+# Loading /ext/eda/hds/2025_2/resources/downstream/modelsim/ModelSim_64Bit.dll
+add wave -position end  sim:/senso/clk
+add wave -position end  sim:/senso/dec_duration
+add wave -position end  sim:/senso/res_duration
+add wave -position end  sim:/senso/res_n
+add wave -position end  sim:/senso/start_timer
+run
+# ** Note: Starte Timer mit voller Dauer (10 Zyklen)...
+#    Time: 80 ns  Iteration: 0  Instance: /senso/U_1
+# 0
+# 
+run
+# ** Note: Verkürze Zeit 3x ...
+#    Time: 400 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Starte Timer mit verkürzter Dauer (7 Zyklen)...
+#    Time: 520 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Teste Minimum Limit...
+#    Time: 840 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Setze Dauer zurück...
+#    Time: 1260 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Simulation beendet.
+#    Time: 1600 ns  Iteration: 0  Instance: /senso/U_1
+# 0
+# 
+add wave -position end  sim:/senso/U_0/res_duration
+add wave -position end  sim:/senso/U_0/timer_expired
+run
+# 0
+# 
+# hds_restart
+restart -force
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.senso(struct)#1
+# Loading work.button(behav)#1
+# Loading work.button_tb(behav)#1
+# Loading work.timer(behav)#1
+# Loading work.timer_tb(behav)#1
+# Loading /ext/eda/hds/2025_2/resources/downstream/modelsim/ModelSim_64Bit.dll
+add wave -position end  sim:/senso/U_3/key
+add wave -position end  sim:/senso/U_2/clk
+add wave -position end  sim:/senso/U_2/res_n
+add wave -position end  sim:/senso/U_2/tx_n
+add wave -position end  sim:/senso/U_2/clk_period
+run
+# ** Note: Starte Timer mit voller Dauer (10 Zyklen)...
+#    Time: 80 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Druecke Taster (lang)...
+#    Time: 140 ns  Iteration: 0  Instance: /senso/U_2
+# ** Note: Lasse Taster los...
+#    Time: 340 ns  Iteration: 0  Instance: /senso/U_2
+# ** Note: Verkürze Zeit 3x ...
+#    Time: 400 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Druecke Taster (kurz)...
+#    Time: 440 ns  Iteration: 0  Instance: /senso/U_2
+# ** Note: Starte Timer mit verkürzter Dauer (7 Zyklen)...
+#    Time: 520 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Simuliere Prellen/Schnelles Drücken...
+#    Time: 600 ns  Iteration: 0  Instance: /senso/U_2
+# ** Note: Teste Minimum Limit...
+#    Time: 840 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Setze Dauer zurück...
+#    Time: 1260 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Simulation beendet.
+#    Time: 1600 ns  Iteration: 0  Instance: /senso/U_1
+# 0
+# 
+# hds_restart
+restart -force
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.senso(struct)#1
+# Loading work.button(behav)#1
+# Loading work.button_tb(behav)#1
+# Loading work.timer(behav)#1
+# Loading work.timer_tb(behav)#1
+# Loading /ext/eda/hds/2025_2/resources/downstream/modelsim/ModelSim_64Bit.dll
+run
+# ** Note: Starte Timer mit voller Dauer (10 Zyklen)...
+#    Time: 80 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Druecke Taster (lang)...
+#    Time: 140 ns  Iteration: 0  Instance: /senso/U_2
+# ** Note: Lasse Taster los...
+#    Time: 340 ns  Iteration: 0  Instance: /senso/U_2
+# ** Note: Verkürze Zeit 3x ...
+#    Time: 400 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Druecke Taster (kurz)...
+#    Time: 440 ns  Iteration: 0  Instance: /senso/U_2
+# ** Note: Starte Timer mit verkürzter Dauer (7 Zyklen)...
+#    Time: 520 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Simuliere Prellen/Schnelles Drücken...
+#    Time: 600 ns  Iteration: 0  Instance: /senso/U_2
+# ** Note: Teste Minimum Limit...
+#    Time: 840 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Setze Dauer zurück...
+#    Time: 1260 ns  Iteration: 0  Instance: /senso/U_1
+# ** Note: Simulation beendet.
+#    Time: 1600 ns  Iteration: 0  Instance: /senso/U_1

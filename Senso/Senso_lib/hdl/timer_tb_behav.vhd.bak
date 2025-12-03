@@ -1,0 +1,52 @@
+--
+-- VHDL Architecture Senso_lib.timer_tb.behav
+--
+-- Created:
+--          by - st177504.st177504 (pc027)
+--          at - 16:47:33 11/19/25
+--
+-- using Siemens HDL Designer(TM) 2025.2 Built on 26 May 2025 at 14:52:30
+--
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+ENTITY timer_tb IS
+  port(
+    clk: out std_logic;
+    res_n: out std_logic;
+    start_timer: out std_logic);
+END ENTITY timer_tb;
+
+--
+ARCHITECTURE behav OF timer_tb IS
+  
+
+BEGIN
+  osc: process is 
+  begin
+    clk <= '0';
+    wait for 10ns;
+    clk <= '1';
+    wait for 10ns;
+  end process osc;
+  
+  reset: process is
+  begin
+    res_n <= '0';
+    wait for 35ns;
+    res_n <= '1';
+    wait;
+  end process reset;
+
+  start: process is 
+  begin
+    start_timer <= '0';
+    wait for 55ns;
+    start_timer <= '1';
+    wait for 75ns;
+    start_timer <= '0';
+    wait;
+  end process start;
+
+END ARCHITECTURE behav;
+

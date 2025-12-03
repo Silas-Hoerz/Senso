@@ -1,0 +1,14 @@
+[QuestaSim]
+Senso_lib = $HDS_PROJECT_DIR/Senso_lib/questasim
+[hdl]
+Senso_lib = $HDS_PROJECT_DIR/Senso_lib/hdl
+[hds]
+Senso_lib = $HDS_PROJECT_DIR/Senso_lib/hds
+[hds_settings]
+default_library = Senso_lib
+design_root = Senso_lib.Senso(struct)@senso/struct.bd
+version = 3
+[library_type]
+Senso_lib = regular
+[shared]
+others = $SHARED_HDP
