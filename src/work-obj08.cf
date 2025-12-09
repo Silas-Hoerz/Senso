@@ -1,19 +1,34 @@
 v 4
-file / "C:\Users\silas\Documents\Senso\Senso\src\top.vhd" "b18709ddbe9a2d18f2ff77da756c3ce8c32c5b70" "20251202134832.208":
-  entity top at 1( 0) + 0 on 147;
-  architecture behav of top at 7( 75) + 0 on 148;
-file / "C:\Users\silas\Documents\Senso\Senso\src\timer_tb.vhd" "9f88c9d11279814f8a3179a47b475202572150e4" "20251202134832.207":
-  entity timer_tb at 1( 0) + 0 on 145;
-  architecture behav of timer_tb at 13( 278) + 0 on 146;
-file / "C:\Users\silas\Documents\Senso\Senso\src\timer.vhd" "06f51edadce57bdb587018ff849ef148023f4171" "20251202134832.206":
-  entity timer at 1( 0) + 0 on 143;
-  architecture behav of timer at 17( 423) + 0 on 144;
-file / "C:\Users\silas\Documents\Senso\Senso\src\button.vhd" "9283f479ece1d0b75675d50177f7652aace1f918" "20251202134832.202":
-  entity button at 1( 0) + 0 on 137;
-  architecture behav of button at 12( 220) + 0 on 138;
-file / "C:\Users\silas\Documents\Senso\Senso\src\button_tb.vhd" "da99ada12f27d871ef1a411f5978be561db7d627" "20251202134832.203":
-  entity button_tb at 1( 0) + 0 on 139;
-  architecture behav of button_tb at 14( 369) + 0 on 140;
-file / "C:\Users\silas\Documents\Senso\Senso\src\button_top.vhd" "3e5147b878e5a8b24779db6c25c0b5597784527d" "20251202134832.204":
-  entity button_top at 1( 0) + 0 on 141;
-  architecture struct of button_top at 7( 95) + 0 on 142;
+file / "C:\Users\silas\Documents\Senso\Senso\src\Aufgabe 3\tester.vhd" "064aec85ac344cc22224f9091967b59d1caf3c7e" "20251209135352.685":
+  entity tester at 1( 0) + 0 on 257;
+  architecture behav of tester at 14( 292) + 0 on 258;
+file / "C:\Users\silas\Documents\Senso\Senso\src\Aufgabe 3\galois_lfsr_tb.vhd" "f96fb76b675daba9ec6d92cb9914d3023dc623bd" "20251209135352.684":
+  entity galois_lfsr_tb at 1( 0) + 0 on 255;
+  architecture struct of galois_lfsr_tb at 8( 133) + 0 on 256;
+file / "C:\Users\silas\Documents\Senso\Senso\src\Aufgabe 3\galois_lfsr.vhd" "58700c833e0470928c2d8a798ac4273904d2ccc3" "20251209135352.684":
+  entity galois_lfsr at 10( 234) + 0 on 253;
+  architecture behav of galois_lfsr at 24( 539) + 0 on 254;
+file / "C:\Users\silas\Documents\Senso\Senso\src\Aufgabe 3\analyzer_behav.vhd" "c145754a0f93f50a5c01ff95d5fc6dd661ddd7b6" "20251209135352.683":
+  entity analyzer at 10( 231) + 0 on 251;
+  architecture behav of analyzer at 21( 479) + 0 on 252;
+file / "C:\Users\silas\Documents\Senso\Senso\src\input.vhd" "fc86778598fdd4428ed99b455a7d5798c41c5c30" "20251209135352.681":
+  entity input at 1( 0) + 0 on 243;
+  architecture behav of input at 12( 255) + 0 on 244;
+file / "C:\Users\silas\Documents\Senso\Senso\src\button_top.vhd" "3e5147b878e5a8b24779db6c25c0b5597784527d" "20251209135352.680":
+  entity button_top at 1( 0) + 0 on 241;
+  architecture struct of button_top at 7( 95) + 0 on 242;
+file / "C:\Users\silas\Documents\Senso\Senso\src\button_tb.vhd" "da99ada12f27d871ef1a411f5978be561db7d627" "20251209135352.680":
+  entity button_tb at 1( 0) + 0 on 239;
+  architecture behav of button_tb at 14( 369) + 0 on 240;
+file / "C:\Users\silas\Documents\Senso\Senso\src\button.vhd" "9283f479ece1d0b75675d50177f7652aace1f918" "20251209135352.679":
+  entity button at 1( 0) + 0 on 237;
+  architecture behav of button at 12( 220) + 0 on 238;
+file / "C:\Users\silas\Documents\Senso\Senso\src\timer.vhd" "06f51edadce57bdb587018ff849ef148023f4171" "20251209135352.681":
+  entity timer at 1( 0) + 0 on 245;
+  architecture behav of timer at 17( 423) + 0 on 246;
+file / "C:\Users\silas\Documents\Senso\Senso\src\timer_tb.vhd" "9f88c9d11279814f8a3179a47b475202572150e4" "20251209135352.682":
+  entity timer_tb at 1( 0) + 0 on 247;
+  architecture behav of timer_tb at 13( 278) + 0 on 248;
+file / "C:\Users\silas\Documents\Senso\Senso\src\top.vhd" "b18709ddbe9a2d18f2ff77da756c3ce8c32c5b70" "20251209135352.682":
+  entity top at 1( 0) + 0 on 249;
+  architecture behav of top at 7( 75) + 0 on 250;
