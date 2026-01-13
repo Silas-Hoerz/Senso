@@ -10,7 +10,7 @@ entity control is
         key_color     : in std_logic_vector(1 downto 0);
         timer_expired : in std_logic;
         step_eq_score : in std_logic;
-        rnd_color     : in std_logic_vector(1 downto 0); -- Von Random (rnd 1 downto 0)
+        rnd_color     : in std_logic_vector(1 downto 0); 
 
         -- Outputs zu anderen Modulen
         start_timer   : out std_logic;
@@ -37,43 +37,56 @@ architecture behav of control is
     type state_t is (
         IDLE,           -- Wartet auf Spielstart
         PREP_NEW_GAME,  -- Initiiert neues Spiel
-        PREP_SEQ,       -- Vorbereiten zum Abspielen (Seed laden, Step reset)
-        SHOW_LED,       -- LED leuchtet
+        PREP_SEQ,       -- Vorbereiten zum Abspielen
+        SHOW_LED,       -- LED leuchtet (Computer)
         WAIT_SHOW,      -- Warten bis Leuchtdauer vorbei
         PAUSE_LED,      -- Kurze Pause zwischen LEDs
         WAIT_PAUSE,     -- Warten bis Pause vorbei
         NEXT_SEQ_STEP,  -- Nächster Schritt in der Sequenz
-        PREP_USER,      -- Vorbereiten für Benutzereingabe (Seed laden, Step reset)
+        PREP_USER,      -- Vorbereiten für Benutzereingabe
         WAIT_INPUT,     -- Warten auf Tastendruck
         CHECK_INPUT,    -- Eingabe prüfen
+        -- NEUE ZUSTÄNDE FÜR FEEDBACK:
+        FEEDBACK_ON,    -- LED der gedrückten Taste einschalten
+        WAIT_FEEDBACK,  -- Warten (kurzes Aufleuchten)
+        -- ENDE NEU
         INPUT_CORRECT,  -- Eingabe war korrekt -> Weiter
         LEVEL_UP,       -- Runde geschafft
         GAME_OVER       -- Falsche Eingabe
     );
     
     signal current_state, next_state : state_t;
+    
+    -- Neues Signal zum Speichern der gedrückten Farbe
+    signal stored_key_color : std_logic_vector(1 downto 0);
 
 begin
 
-    -- 1. Zustandsspeicher
+    -- 1. Zustandsspeicher & Datenspeicher
     state_reg: process(clk, res_n)
     begin
         if res_n = '0' then
             current_state <= IDLE;
+            stored_key_color <= "00";
         elsif rising_edge(clk) then
             current_state <= next_state;
+            
+            -- WICHTIG: Farbe sofort speichern, wenn Taste gültig ist.
+            -- key_valid ist nur für 1 Takt high!
+            if key_valid = '1' then
+                stored_key_color <= key_color;
+            end if;
         end if;
     end process;
 
     -- 2. Übergangslogik (Next State Logic)
-    trans_logic: process(current_state, key_valid, timer_expired, step_eq_score, key_color, rnd_color)
+    trans_logic: process(current_state, key_valid, timer_expired, step_eq_score, stored_key_color, rnd_color)
     begin
         -- Default: Bleibe im Zustand
         next_state <= current_state;
 
         case current_state is
             when IDLE =>
-                -- Warten auf Tastendruck zum Starten
                 if key_valid = '1' then
                     next_state <= PREP_NEW_GAME;
                 end if;
@@ -101,8 +114,6 @@ begin
                 end if;
 
             when NEXT_SEQ_STEP =>
-                -- Wenn Sequenz noch nicht fertig abgespielt -> zurück zu SHOW
-                -- Wenn fertig abgespielt -> USER ist dran
                 if step_eq_score = '1' then
                     next_state <= PREP_USER;
                 else
@@ -118,29 +129,37 @@ begin
                 end if;
 
             when CHECK_INPUT =>
-                if key_color = rnd_color then
-                    next_state <= INPUT_CORRECT;
+                -- Vergleich mit gespeicherter Farbe
+                if stored_key_color = rnd_color then
+                    -- Erst Feedback anzeigen (LED leuchten lassen)
+                    next_state <= FEEDBACK_ON;
                 else
                     next_state <= GAME_OVER;
                 end if;
 
+            -- NEU: Feedback Ablauf
+            when FEEDBACK_ON =>
+                next_state <= WAIT_FEEDBACK;
+                
+            when WAIT_FEEDBACK =>
+                if timer_expired = '1' then
+                    next_state <= INPUT_CORRECT;
+                end if;
+            -- ENDE NEU
+
             when INPUT_CORRECT =>
                 if step_eq_score = '1' then
-                    -- Ganze Sequenz richtig nachgespielt
                     next_state <= LEVEL_UP;
                 else
-                    -- Nur ein Schritt richtig, warten auf nächsten Tastendruck
-                    next_state <= WAIT_INPUT;
+                    next_state <= WAIT_INPUT; -- Nächste Eingabe erwarten
                 end if;
 
             when LEVEL_UP =>
-                -- Zurück zum Vorspielen, aber schneller und länger
                 next_state <= PREP_SEQ;
 
             when GAME_OVER =>
-                -- Warten auf Tastendruck für Neustart
                 if key_valid = '1' then
-                    next_state <= IDLE; -- Zurück zum Anfang
+                    next_state <= IDLE;
                 end if;
                 
             when others =>
@@ -149,7 +168,7 @@ begin
     end process;
 
     -- 3. Ausgangslogik (Output Logic)
-    output_logic: process(current_state, rnd_color)
+    output_logic: process(current_state, rnd_color, stored_key_color)
     begin
         -- Default Zuweisungen (vermeidet Latches)
         start_timer   <= '0';
@@ -168,59 +187,59 @@ begin
 
         case current_state is
             when IDLE =>
-                res_score    <= '1'; -- Score reset
-                res_duration <= '1'; -- Speed reset
-                next_rnd     <= '1'; -- Zufallszahlen durchlaufen lassen (Seed generieren)
+                res_score    <= '1';
+                res_duration <= '1';
+                next_rnd     <= '1';
 
             when PREP_NEW_GAME =>
-                store_rnd    <= '1'; -- Den aktuellen Zufallswert speichern (als Seed)
+                store_rnd    <= '1';
                 res_score    <= '1';
 
             when PREP_SEQ =>
-                restore_rnd  <= '1'; -- Seed laden, um Sequenz von vorne zu generieren
-                res_step     <= '1'; -- Step counter nullen
+                restore_rnd  <= '1';
+                res_step     <= '1';
 
             when SHOW_LED =>
                 led_on       <= '1';
-                led_color    <= rnd_color; -- Farbe aus RNG
+                led_color    <= rnd_color; -- Computer Farbe
                 start_timer  <= '1';
 
             when WAIT_SHOW =>
                 led_on       <= '1';
                 led_color    <= rnd_color;
-                -- Timer läuft im Hintergrund
 
             when PAUSE_LED =>
-                -- LED aus, Timer neu starten für Pause
                 start_timer  <= '1';
 
-            when WAIT_PAUSE =>
-                -- Nichts tun, warten
-
             when NEXT_SEQ_STEP =>
-                next_rnd     <= '1'; -- Nächste Farbe holen
+                next_rnd     <= '1';
                 inc_step     <= '1';
 
             when PREP_USER =>
-                restore_rnd  <= '1'; -- Seed wieder laden für User-Check
+                restore_rnd  <= '1';
                 res_step     <= '1';
 
-            when WAIT_INPUT =>
-                -- Warten...
-
-            when CHECK_INPUT =>
-                -- Logik passiert im State Transition
+            -- NEU: Feedback Ausgänge
+            when FEEDBACK_ON =>
+                led_on       <= '1';
+                led_color    <= stored_key_color; -- Spieler Farbe anzeigen
+                start_timer  <= '1';              -- Timer starten
+                
+            when WAIT_FEEDBACK =>
+                led_on       <= '1';
+                led_color    <= stored_key_color;
+            -- ENDE NEU
 
             when INPUT_CORRECT =>
-                next_rnd     <= '1'; -- RNG weiterschalten für nächsten Vergleich
+                next_rnd     <= '1';
                 inc_step     <= '1'; 
 
             when LEVEL_UP =>
                 inc_score    <= '1';
-                dec_duration <= '1'; -- Spiel wird schneller
+                dec_duration <= '1';
 
             when GAME_OVER =>
-                all_on       <= '1'; -- Alle LEDs an als Fehleranzeige
+                all_on       <= '1';
 
             when others =>
                 null;
